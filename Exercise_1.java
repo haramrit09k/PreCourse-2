@@ -1,8 +1,25 @@
+// Time Complexity : O(log2(n)) where n is num of elements in array
+// Space Complexity : O(1) since we use the same set of int vars (l, r, mid) for each array
+// Did this code successfully run on Leetcode : ran correctly locally and returned this output - Element found at index 3
+// Any problem you faced while coding this : No
 class BinarySearch { 
     // Returns index of x if it is present in arr[l.. r], else return -1 
     int binarySearch(int arr[], int l, int r, int x) 
     { 
         //Write your code here
+        while(l <= r){
+            int mid = l + (r-l)/2;
+            if(arr[mid] == x){
+                return mid;
+            }
+            else if(arr[mid] > x){
+                r = mid-1;
+            }
+            else{
+                l = mid+1;
+            }
+        }
+        return -1;
     } 
   
     // Driver method to test above 
